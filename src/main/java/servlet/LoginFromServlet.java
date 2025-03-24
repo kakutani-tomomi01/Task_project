@@ -58,7 +58,7 @@ public class LoginFromServlet extends HttpServlet {
 		
 		if ("logincheck".equals(role)) {
 			try {
-				user = dao.selectUser(userId, password);
+				user = dao.getUser(userId, password);
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}

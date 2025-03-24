@@ -17,7 +17,7 @@ import model.entity.UserBean;
  */
 public class UserDAO {
 	
-	public UserBean selectUser(String userId, String password) throws ClassNotFoundException, SQLException {
+	public UserBean getUser(String userId, String password) throws ClassNotFoundException, SQLException {
 		UserBean user = new UserBean();
 		
 		// sqlの準備
