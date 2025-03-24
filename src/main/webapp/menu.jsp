@@ -1,3 +1,4 @@
+<%@page import="model.entity.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,7 +16,10 @@
 	<form action="task" method="POST">
 		<input type="hidden" name="role" value="taskList">
 		<input type="submit" value="タスク一覧表示">
+	</form>	
+	<!-- 登録用form -->
+	<form action="" method="get">
+		<input type="hidden" name="">
 	</form>
-
 </body>
 </html>
