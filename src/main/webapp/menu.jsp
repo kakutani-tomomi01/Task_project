@@ -18,8 +18,8 @@
 		<input type="submit" value="タスク一覧表示">
 	</form>	
 	<!-- 登録用form -->
-	<form action="" method="get">
-		<input type="hidden" name="">
+	<form action="TaskRegister" method="get">
+		<input type="submit" value="登録画面へ">
 	</form>
 </body>
 </html>

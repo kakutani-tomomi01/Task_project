@@ -6,6 +6,7 @@ import java.sql.Date;
 public class TaskBean implements Serializable {
 	private String taskName;
 	private int categoryId;
+	private String categoryName;
 	private Date limitDate;
 	private String userId;
 	private String statusCode;
@@ -42,6 +43,14 @@ public class TaskBean implements Serializable {
 	 */
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 
 	/**
