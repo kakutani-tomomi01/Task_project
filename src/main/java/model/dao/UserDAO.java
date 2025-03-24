@@ -37,7 +37,7 @@ public class UserDAO {
 			// 結果の操作
 			while(res.next()) {
 				user.setUserId(res.getString("user_id"));
-				user.setUserName("user_name");
+				user.setUserName(res.getString("user_name"));
 			}
 		}
 		
