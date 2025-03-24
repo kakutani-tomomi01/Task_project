@@ -40,7 +40,7 @@ public class TaskDAO {
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public List<TaskBean> getTaskList() throws ClassNotFoundException, SQLException {
+	public List<TaskBean> getTaskListAll() throws ClassNotFoundException, SQLException {
 		List<TaskBean> taskList = new ArrayList<TaskBean>();
 		String sql = "SELECT t1.task_id, t1.task_name, t1.category_id, t2.category_name, t1.limit_date, t1.user_id, t3.user_name, t1.status_code, t4.status_name, t1.memo FROM t_task t1 INNER JOIN m_category t2 ON t1.category_id = t2.category_id INNER JOIN m_user t3 ON t1.user_id = t3.user_id INNER JOIN m_status t4 ON t1.status_code = t4.status_code ORDER BY task_id asc";
 		
