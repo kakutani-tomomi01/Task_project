@@ -7,7 +7,7 @@
 <%
 	List<CategoryBean> categoryList = (List)request.getAttribute("categoryList");
     List<StatusBean> statusList = (List)request.getAttribute("statusList");
-	UserBean user = (UserBean)session.getAttribute("user");
+    List<UserBean> userList = (List)request.getAttribute("userList");
 %>
 <!DOCTYPE html>
 <html>
@@ -26,9 +26,13 @@
 		<%} %>
 	</select><br>
 	期限<input type="date" name="limitDate"><br>
-	担当者 <%=user.getUserName() %><br>
+	担当者 
+	<select name="user">
+		<%for(UserBean user : userList){ %>
+			<option value=<%=user.getUserId() %>><%=user.getUserName() %></option>
+		<%} %>
+	</select><br>
 	ステータス
-	<!-- DAOいじれるようになったら追加 -->
 	<select name="status">
 		<%for(StatusBean status : statusList){ %>
 			<option value=<%=status.getStatusCode() %>><%=status.getStatusName() %></option>

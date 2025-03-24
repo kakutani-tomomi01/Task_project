@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.StatusTest;
 import model.dao.TaskDAO;
 import model.entity.CategoryBean;
 import model.entity.StatusBean;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class TaskRegisterServlet
@@ -36,13 +36,13 @@ public class TaskRegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TaskDAO taskDao = new TaskDAO();
-		//テスト
-		StatusTest statusTest = new StatusTest();
 		try {
 			List<CategoryBean> categoryList = taskDao.getCategoryList();
-			List<StatusBean> statusList = statusTest.getStatusList();
+			List<StatusBean> statusList = taskDao.getStatusList();
+			List<UserBean> userList = taskDao.getUserList();
 			request.setAttribute("categoryList", categoryList);
 			request.setAttribute("statusList", statusList);
+			request.setAttribute("userList", userList);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
