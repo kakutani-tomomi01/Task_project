@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class TaskBean implements Serializable {
-	private String taskId;
+	private int taskId;
 	private String taskName;
 	private int categoryId;
 	private String categoryName;
@@ -20,19 +20,22 @@ public class TaskBean implements Serializable {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
+
 	/**
 	 * @return taskId
 	 */
-	public String getTaskId() {
+	public int getTaskId() {
 		return taskId;
 	}
+
 
 	/**
 	 * @param taskId セットする taskId
 	 */
-	public void setTaskId(String taskId) {
+	public void setTaskId(int taskId) {
 		this.taskId = taskId;
 	}
+
 
 	/**
 	 * @return taskName
