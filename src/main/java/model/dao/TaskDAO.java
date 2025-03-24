@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.entity.CategoryBean;
+import model.entity.StatusBean;
 import model.entity.TaskBean;
 
 public class TaskDAO {
@@ -67,4 +68,22 @@ public class TaskDAO {
 		
 		return taskList;
 	}
+	
+	public List<StatusBean> getStatusList() throws SQLException, ClassNotFoundException{
+        List<StatusBean> statusList = new ArrayList<StatusBean>();
+        String sql = "SELECT status_code,status_name FROM m_status";
+        
+        try(Connection con = ConnectionManager.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql)){
+            ResultSet res = pstmt.executeQuery();
+            
+            while(res.next()) {
+                StatusBean status = new StatusBean();
+                status.setStatusCode(res.getString("status_code"));
+                status.setStatusName(res.getString("status_name"));
+                statusList.add(status);
+            }
+        }
+        return statusList;
+    }
 }
