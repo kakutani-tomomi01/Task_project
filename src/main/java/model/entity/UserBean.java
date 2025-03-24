@@ -21,7 +21,7 @@ public class UserBean implements Serializable {
 	/**
 	 * パスワード
 	 */
-	private String passworc;
+	private String password;
 	
 	/**
 	 * ユーザ名
@@ -57,15 +57,15 @@ public class UserBean implements Serializable {
 	/**
 	 * @return passworc
 	 */
-	public String getPassworc() {
-		return passworc;
+	public String getPassword() {
+		return password;
 	}
 
 	/**
 	 * @param passworc セットする passworc
 	 */
-	public void setPassworc(String passworc) {
-		this.passworc = passworc;
+	public void setPassword(String passworc) {
+		this.password = passworc;
 	}
 
 	/**
