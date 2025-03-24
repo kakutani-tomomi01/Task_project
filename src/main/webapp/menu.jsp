@@ -13,7 +13,7 @@
 	%>
 	ようこそ、<%=user.getUserId() %> さん<br>
 	<h1>メニュー画面</h1>
-	<form action="task" method="POST">
+	<form action="tasklist" method="POST">
 		<input type="hidden" name="role" value="taskList">
 		<input type="submit" value="タスク一覧表示">
 	</form>	
