@@ -9,6 +9,7 @@ public class TaskBean implements Serializable {
 	private String categoryName;
 	private Date limitDate;
 	private String userId;
+	private String userName;
 	private String statusCode;
 	private String memo;
 	
@@ -79,6 +80,20 @@ public class TaskBean implements Serializable {
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	/**
+	 * @return userName
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * @param userName セットする userName
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/**
