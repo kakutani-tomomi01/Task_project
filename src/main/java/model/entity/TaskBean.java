@@ -11,6 +11,7 @@ public class TaskBean implements Serializable {
 	private String userId;
 	private String userName;
 	private String statusCode;
+	private String statusName;
 	private String memo;
 	
 	// コンストラクタ
@@ -108,6 +109,20 @@ public class TaskBean implements Serializable {
 	 */
 	public void setStatusCode(String statusCode) {
 		this.statusCode = statusCode;
+	}
+
+	/**
+	 * @return statusName
+	 */
+	public String getStatusName() {
+		return statusName;
+	}
+
+	/**
+	 * @param statusName セットする statusName
+	 */
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
 	}
 
 	/**
