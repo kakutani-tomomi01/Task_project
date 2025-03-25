@@ -46,7 +46,6 @@ public class TaskListServlet extends HttpServlet {
 		
 		// リクエストパラメータの取得
 		String role = request.getParameter("role");
-		System.out.println(role);
 		
 		TaskBean task = new TaskBean();
 		List<TaskBean> taskList = null;
@@ -59,7 +58,6 @@ public class TaskListServlet extends HttpServlet {
 		if ("taskList".equals(role)) {
 			try {
 				taskList = dao.getTaskListAll();
-				System.out.println(taskList.size());
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
