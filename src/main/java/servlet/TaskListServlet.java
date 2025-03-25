@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,6 +46,7 @@ public class TaskListServlet extends HttpServlet {
 		
 		// リクエストパラメータの取得
 		String role = request.getParameter("role");
+		System.out.println(role);
 		
 		TaskBean task = new TaskBean();
 		List<TaskBean> taskList = null;
@@ -59,11 +59,12 @@ public class TaskListServlet extends HttpServlet {
 		if ("taskList".equals(role)) {
 			try {
 				taskList = dao.getTaskListAll();
+				System.out.println(taskList.size());
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
 			
-			if (Objects.isNull(taskList)) {
+			if (taskList.size() > 0) {
 				request.setAttribute("taskList", taskList);
 				
 				url = "task-list.jsp";

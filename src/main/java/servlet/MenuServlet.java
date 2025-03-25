@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.util.Objects;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +44,8 @@ public class MenuServlet extends HttpServlet {
 		}
 		
 		// リクエストの転送
-		
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
 
 	/**

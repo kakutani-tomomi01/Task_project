@@ -56,7 +56,9 @@ REFERENCES m_status(status_code);
 
 /* m_user*/
 INSERT INTO m_user(user_id,password,user_name)VALUES
-("admin","password","ADMIN");
+("admin","password","ADMIN"),
+("e0001","password","employee0001"),
+("e0002","password","employee0002");
 /* m_category初期データ挿入 */
 INSERT INTO m_category(category_name) VALUES
 ("新商品A:開発プロジェクト"),
@@ -66,3 +68,6 @@ INSERT INTO m_status(status_code,status_name) VALUES
 ('00',"未着手"),
 ('50',"着手"),
 ('99',"完了");
+/* m_status初期データ挿入 */
+INSERT INTO t_task(task_name,category_id,limit_date,user_id,status_code,memo,create_datetime) VALUES
+("タスクテスト1",1,sysdate(),"admin","00","タスクのテストです",sysdate());
