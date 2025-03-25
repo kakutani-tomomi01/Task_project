@@ -37,7 +37,6 @@
 		<%for(StatusBean status : statusList){ %>
 			<option value=<%=status.getStatusCode() %>><%=status.getStatusName() %></option>
 		<%} %>
-		
 	</select><br>
 	メモ<br>
 	<textarea name="memo"></textarea><br>

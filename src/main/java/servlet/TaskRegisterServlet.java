@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.dao.TaskDAO;
 import model.entity.CategoryBean;
 import model.entity.StatusBean;
+import model.entity.TaskRegisterBean;
 import model.entity.UserBean;
 
 /**
@@ -54,8 +56,29 @@ public class TaskRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		//ゲッパら
+		String taskName = request.getParameter("taskName");
+		int categoryId = Integer.parseInt(request.getParameter("category"));
+		Date limitDate = Date.valueOf(request.getParameter("limitDate"));
+		String userId = request.getParameter("user");
+		String statusCode = request.getParameter("status");
+		String memo = request.getParameter("memo");
+		//beanに登録情報格納
+		TaskRegisterBean task = new TaskRegisterBean();
+		task.setTaskName(taskName);
+		task.setCategoryId(categoryId);
+		task.setLimitDate(limitDate);
+		task.setUserId(userId);
+		task.setStatusCode(statusCode);
+		task.setMemo(memo);
+		
+		TaskDAO taskDao = new TaskDAO();
+		try {
+			int registCount = taskDao.taskRegister(task);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

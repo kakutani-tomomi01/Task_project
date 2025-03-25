@@ -10,6 +10,7 @@ import java.util.List;
 import model.entity.CategoryBean;
 import model.entity.StatusBean;
 import model.entity.TaskBean;
+import model.entity.TaskRegisterBean;
 import model.entity.UserBean;
 
 public class TaskDAO {
@@ -114,5 +115,23 @@ public class TaskDAO {
 			}
 		}
 		return userList;
+	}
+	public int taskRegister(TaskRegisterBean task) throws ClassNotFoundException, SQLException {
+		int registCount;
+		String sql = "INSERT INTO t_task(task_name,category_id,limit_date,user_id,status_code,memo)\n"
+				+ "VALUES(?,?,?,?,?,?);";
+		try(Connection con = ConnectionManager.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(sql)){
+			
+			pstmt.setString(1, task.getTaskName());
+			pstmt.setInt(2, task.getCategoryId());
+		    pstmt.setDate(3, task.getLimitDate());
+		    pstmt.setString(4, task.getUserId());
+		    pstmt.setString(5, task.getStatusCode());
+		    pstmt.setString(6, task.getMemo());
+		    
+		    registCount = pstmt.executeUpdate();
+		    return registCount;
+		}
 	}
 }
