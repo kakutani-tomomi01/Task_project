@@ -48,7 +48,7 @@ public class TaskRegisterServlet extends HttpServlet {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("task-register.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/task_register/task-register.jsp");
 		rd.forward(request, response);
 	}
 

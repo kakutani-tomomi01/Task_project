@@ -50,7 +50,7 @@ public class LoginFromServlet extends HttpServlet {
 		String role = request.getParameter("role");
 		
 		// 転送先のurl設定
-		String url = "login-failure.html";
+		String url = "WEB-INF/login/login-failure.html";
 		
 		UserBean user = new UserBean();
 		
@@ -64,7 +64,7 @@ public class LoginFromServlet extends HttpServlet {
 			}
 			
 			if (userId.equals(user.getUserId())) {
-				url = "menu.jsp";
+				url = "WEB-INF/menu/menu.jsp";
 				
 				// セッションオブジェクトの取得
 				HttpSession session = request.getSession();
