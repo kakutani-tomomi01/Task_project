@@ -57,6 +57,7 @@ public class TaskRegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		String url = "WEB-INF/task_register/task-register-failure.jsp";
 		//ゲッパら
 		String taskName = request.getParameter("taskName");
 		int categoryId = Integer.parseInt(request.getParameter("category"));
@@ -76,9 +77,14 @@ public class TaskRegisterServlet extends HttpServlet {
 		TaskDAO taskDao = new TaskDAO();
 		try {
 			int registCount = taskDao.taskRegister(task);
+			if(registCount > 0) {
+				url = "WEB-INF/task_register/task-register-success.jsp";
+			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
 
 }
