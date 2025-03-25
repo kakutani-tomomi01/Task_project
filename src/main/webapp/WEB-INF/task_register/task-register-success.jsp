@@ -9,7 +9,7 @@
 <body>
 	<form action="menu" method="get">
 		<h1>登録に成功しました</h1>
-		<button type="submit">メニュー画面へ</button>
+		<input type="submit" value="メニュー画面へ">
 	</form>
 </body>
 </html>
