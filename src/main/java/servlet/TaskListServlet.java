@@ -46,20 +46,18 @@ public class TaskListServlet extends HttpServlet {
 		
 		// リクエストパラメータの取得
 		String role = request.getParameter("role");
-		System.out.println(role);
 		
 		TaskBean task = new TaskBean();
 		List<TaskBean> taskList = null;
 		
 		// 転送先のurl設定
-		String url = "login-failure.html";
+		String url = "WEB-INF/login/login-failure.html";
 		
 		TaskDAO dao = new TaskDAO();
 		
 		if ("taskList".equals(role)) {
 			try {
 				taskList = dao.getTaskListAll();
-				System.out.println(taskList.size());
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
@@ -67,7 +65,7 @@ public class TaskListServlet extends HttpServlet {
 			if (taskList.size() > 0) {
 				request.setAttribute("taskList", taskList);
 				
-				url = "task-list.jsp";
+				url = "WEB-INF/task_list/task-list.jsp";
 			}
 		}
 		
