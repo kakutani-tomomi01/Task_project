@@ -33,14 +33,14 @@ public class MenuServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 転送先のurl
-		String url = "login-failure.html";
+		String url = "WEB-INF/login/login-failure.html";
 		
 		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
 		UserBean user = (UserBean)session.getAttribute("user");
 		
-		if (Objects.isNull(user.getUserName())) {
-			url = "menu.jsp";
+		if (!(Objects.isNull(user.getUserName()))) {
+			url = "WEB-INF/menu/menu.jsp";
 		}
 		
 		// リクエストの転送

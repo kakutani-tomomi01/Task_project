@@ -52,7 +52,7 @@ public class TaskListServlet extends HttpServlet {
 		List<TaskBean> taskList = null;
 		
 		// 転送先のurl設定
-		String url = "login-failure.html";
+		String url = "WEB-INF/login/login-failure.html";
 		
 		TaskDAO dao = new TaskDAO();
 		
@@ -67,7 +67,7 @@ public class TaskListServlet extends HttpServlet {
 			if (taskList.size() > 0) {
 				request.setAttribute("taskList", taskList);
 				
-				url = "task-list.jsp";
+				url = "WEB-INF/task_list/task-list.jsp";
 			}
 		}
 		
